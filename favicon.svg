@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 36 36">
+  <!-- 背景漸層定義 -->
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7cf3ff"></stop>
+      <stop offset="100%" stop-color="#9b8cff"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- 圓角背景 -->
+  <rect x="0" y="0" width="36" height="36" rx="12" ry="12" fill="url(#grad)"></rect>
+
+  <!-- 陰影效果（模擬外發光） -->
+  <rect x="0" y="0" width="36" height="36" rx="12" ry="12" fill="none" stroke="rgba(124,243,255,0.25)" stroke-width="1"></rect>
+
+  <!-- 閃電符號 -->
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-size="18" font-family="sans-serif">⚡</text>
+</svg>
