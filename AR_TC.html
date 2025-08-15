@@ -161,22 +161,7 @@
   }
   </script>
 
-  <script>
-    // 自動依網址判斷語系（/AR_TC → zh-Hant；/AR_EN → en）
-    var lang = location.pathname.toLowerCase().includes('/ar_tc') ? 'zh-Hant' : 'en';
   
-    // 綁定方案按鈕點擊事件
-    document.querySelectorAll('.plans a[data-plan]').forEach(function(el){
-      el.addEventListener('click', function(){
-        var planName = this.getAttribute('data-plan');
-        // GA4 自訂事件：click_plan
-        gtag('event', 'click_plan', {
-          plan: planName,
-          lang: lang
-        });
-      });
-    });
-  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -494,9 +479,24 @@
   </footer>
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+    // 自動依網址判斷語系（/AR_TC → zh-Hant；/AR_EN → en）
+    var lang = location.pathname.toLowerCase().includes('/ar_tc') ? 'zh-Hant' : 'en';
+  
+    // 綁定方案按鈕點擊事件
+    document.querySelectorAll('.plans a[data-plan]').forEach(function(el){
+      el.addEventListener('click', function(){
+        var planName = this.getAttribute('data-plan');
+        // GA4 自訂事件：click_plan
+        gtag('event', 'click_plan', {
+          plan: planName,
+          lang: lang
+        });
+      });
+    });
   </script>
 </body>
 </html>
+
 
 
 
