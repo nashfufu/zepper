@@ -29,6 +29,17 @@
   <meta name="twitter:description" content="支援影片/去背影片與 3D 模型，價格實惠、不限掃描次數。" />
   <meta name="twitter:image" content="https://zepper.pages.dev/zepper.png" />
 
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SCDB1CLKJK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-SCDB1CLKJK');
+  </script>
+
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
   {
@@ -148,6 +159,23 @@
       "description": "最便宜、不限掃描次數的 WebAR 平台，專為 AR 包裝與 AR 禮品設計。支援影片去背與 3D 模型，三步驟讓你的禮品與包裝「動起來」。"
     }
   }
+  </script>
+
+  <script>
+    // 自動依網址判斷語系（/AR_TC → zh-Hant；/AR_EN → en）
+    var lang = location.pathname.toLowerCase().includes('/ar_tc') ? 'zh-Hant' : 'en';
+  
+    // 綁定方案按鈕點擊事件
+    document.querySelectorAll('.plans a[data-plan]').forEach(function(el){
+      el.addEventListener('click', function(){
+        var planName = this.getAttribute('data-plan');
+        // GA4 自訂事件：click_plan
+        gtag('event', 'click_plan', {
+          plan: planName,
+          lang: lang
+        });
+      });
+    });
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -379,6 +407,7 @@
         <h2>三種合作方式</h2>
         <p class="hint">影片最簡單 ▶︎ 3D 模型更沉浸 ▶︎ 需要高端客製就交給我們的創作團隊。</p>
         <div class="cards">
+    
           <!-- 方案一：影片/去背影片 -->
           <article class="card">
             <span class="tag">最受歡迎</span>
@@ -390,9 +419,12 @@
               <li>月繳：每月9.99元美金</li>
               <li>年繳：每月8.25元美金</li>
             </ul>
-            <a class="btn primary" href="https://line.me/ti/p/mJaxGT7we-" target="_blank">上傳影片</a>
+            <a class="btn primary"
+               href="https://line.me/ti/p/mJaxGT7we-"
+               target="_blank" rel="noopener"
+               data-plan="影片去背">上傳影片</a>
           </article>
-
+    
           <!-- 方案二：3D 模型 -->
           <article class="card">
             <h3>方案二｜上傳 <u>3D 模型與動作</u></h3>
@@ -403,9 +435,12 @@
               <li>月繳：每月11.99元美金</li>
               <li>年繳：每月9.92元美金</li>
             </ul>
-            <a class="btn primary" href="https://line.me/ti/p/mJaxGT7we-" target="_blank">上傳 3D 模型</a>
+            <a class="btn primary"
+               href="https://line.me/ti/p/mJaxGT7we-"
+               target="_blank" rel="noopener"
+               data-plan="3D模型">上傳 3D 模型</a>
           </article>
-
+    
           <!-- 方案三：Creative Services -->
           <article class="card">
             <h3>方案三｜聯繫我們的 <u>創作團隊</u></h3>
@@ -415,8 +450,12 @@
               <li>影片去背合成、特效音效</li>
               <li>不限掃描次數</li>
             </ul>
-            <a class="btn secondary" href="https://line.me/ti/p/mJaxGT7we-" target="_blank">聯繫我們客製</a>
+            <a class="btn secondary"
+               href="https://line.me/ti/p/mJaxGT7we-"
+               target="_blank" rel="noopener"
+               data-plan="高端客製">聯繫我們客製</a>
           </article>
+    
         </div>
       </div>
     </section>
@@ -458,6 +497,7 @@
   </script>
 </body>
 </html>
+
 
 
 
