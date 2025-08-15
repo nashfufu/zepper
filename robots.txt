@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /AR_TC
+Allow: /AR_EN
+Disallow: /private/
+Disallow: /tmp/
+
+Sitemap: https://zepper.pages.dev/sitemap.xml
