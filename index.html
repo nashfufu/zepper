@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script>
+    (function() {
+      // 取得瀏覽器語言（小寫）
+      var lang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+
+      // 判斷是否中文（包含繁體與簡體）
+      if (lang.startsWith("zh")) {
+        window.location.href = "/AR_TC";
+      } else {
+        window.location.href = "/AR_EN";
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
