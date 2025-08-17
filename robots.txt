@@ -1,7 +1,10 @@
 User-agent: *
-Allow: /AR_TC
-Allow: /AR_EN
-Disallow: /private/
-Disallow: /tmp/
+Allow: /
 
+# 阻擋首頁自動轉址頁（避免 index.html 被索引）
+Disallow: /index.html
+Disallow: /index.htm
+Disallow: /index
+
+# 明確指定 sitemap 位置（這是關鍵！）
 Sitemap: https://zepper.pages.dev/sitemap.xml
