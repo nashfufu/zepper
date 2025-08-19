@@ -499,23 +499,17 @@
     
         // GA4 自訂事件
         gtag('event', 'click_plan', { plan: planName, lang: lang });
-    
-        // Google Ads 轉換：依語系送不同事件
-        if (lang === 'zh-Hant') {
-          gtag('event', 'conversion', {
+        gtag('event', 'conversion', {
             'send_to': 'AW-11479306375/OdogCIukrokbEIeh4eEq' // 中文轉換代碼
           });
-        } else if (lang === 'en') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-11479306375/XXXXXXX' // 英文轉換代碼（你要在 Ads 建一個）
-          });
-        }
+        
       });
     });
 
   </script>
 </body>
 </html>
+
 
 
 
