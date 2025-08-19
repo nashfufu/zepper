@@ -42,6 +42,9 @@
     gtag('js', new Date());
   
     gtag('config', 'G-SCDB1CLKJK');
+
+    gtag('config', 'AW-11479306375');  /* 補這行：Google Ads 基本設定 */
+
   </script>
 
   <!-- Schema.org JSON-LD -->
@@ -489,24 +492,31 @@
     </div>
   </footer>
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    // 自動依網址判斷語系（/AR_TC → zh-Hant；/AR_EN → en）
-    var lang = location.pathname.toLowerCase().includes('/ar_tc') ? 'zh-Hant' : 'en';
-  
-    // 綁定方案按鈕點擊事件
+    // 綁定方案按鈕點擊事件（GA4 + Google Ads 轉換）
     document.querySelectorAll('.plans a[data-plan]').forEach(function(el){
       el.addEventListener('click', function(){
         var planName = this.getAttribute('data-plan');
-        // GA4 自訂事件：click_plan
-        gtag('event', 'click_plan', {
-          plan: planName,
-          lang: lang
-        });
+    
+        // GA4 自訂事件
+        gtag('event', 'click_plan', { plan: planName, lang: lang });
+    
+        // Google Ads 轉換：依語系送不同事件
+        if (lang === 'zh-Hant') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-11479306375/OdogCIukrokbEIeh4eEq' // 中文轉換代碼
+          });
+        } else if (lang === 'en') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-11479306375/XXXXXXX' // 英文轉換代碼（你要在 Ads 建一個）
+          });
+        }
       });
     });
+
   </script>
 </body>
 </html>
+
 
 
 
