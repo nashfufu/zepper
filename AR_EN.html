@@ -463,16 +463,27 @@
     // Language flag for GA (paths including /ar_tc => zh-Hant; otherwise en)
     var lang = location.pathname.toLowerCase().includes('/ar_tc') ? 'zh-Hant' : 'en';
 
+    
+
+
     // GA4 custom event for plan clicks
     document.querySelectorAll('.plans a[data-plan]').forEach(function(el){
       el.addEventListener('click', function(){
         var planName = this.getAttribute('data-plan');
         gtag('event', 'click_plan', { plan: planName, lang: lang });
+
+        // Google Ads 轉換（英文頁專用 ID）
+        gtag('event', 'conversion', {
+          'send_to': 'AW-11479306375/rOZrCLGBpokbEIeh4eEq'
+        });
+  
+          
       });
     });
   </script>
 </body>
 </html>
+
 
 
 
