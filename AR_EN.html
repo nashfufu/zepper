@@ -277,7 +277,7 @@
       <div class="wrap grid">
         <div>
           <h1 class="headline">Make your gifts, packaging, and products <span style="background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent">come alive with AI</span></h1>
-        <p class="sub">Step 1: Upload your logo. <br>Step 2: Customers scan the logo—AI instantly renders and plays your 3D or background-removed video so a delightful moving object appears on your product.</p>
+          <p class="sub">Step 1: Upload your logo. <br>Step 2: Customers scan the logo—AI instantly renders and plays your 3D or background-removed video so a delightful moving object appears on your product.</p>
           <div class="cta">
             <a class="btn primary" href="#get-started">See 3 ways to work with us</a>
             <a class="btn secondary" href="#embed">Watch demo</a>
@@ -379,10 +379,7 @@
               <li>$9.99/month (monthly)</li>
               <li>$8.25/month (annual)</li>
             </ul>
-            <a class="btn primary"
-               href="javascript:void(0);"
-               data-plan="Video"
-               onclick="openChat()">Upload Video</a>
+            <a class="btn primary" href="#" data-plan="Video" onclick="return openChat(event)">Upload Video</a>
           </article>
 
           <!-- Plan 2: 3D -->
@@ -395,10 +392,7 @@
               <li>$11.99/month (monthly)</li>
               <li>$9.92/month (annual)</li>
             </ul>
-            <a class="btn primary"
-               href="javascript:void(0);"
-               data-plan="3D"
-               onclick="openChat()">Upload 3D model and animation </a>
+            <a class="btn primary" href="#" data-plan="3D" onclick="return openChat(event)">Upload 3D model and animation </a>
           </article>
 
           <!-- Plan 3: Creative Services -->
@@ -410,10 +404,7 @@
               <li>BG-removed compositing; SFX & audio</li>
               <li>Unlimited scans</li>
             </ul>
-            <a class="btn primary"
-               href="javascript:void(0);"
-               data-plan="Creative"
-               onclick="openChat()">Contact Our Team</a>
+            <a class="btn primary" href="#" data-plan="Creative" onclick="return openChat(event)">Contact Our Team</a>
           </article>
 
         </div>
@@ -471,23 +462,27 @@
   <!-- Tawk.to Script (bubble hidden; CTA triggers chat) -->
   <!--Start of Tawk.to Script-->
   <script type="text/javascript">
-    function openChat(){
+    function openChat(e){
+      if (e && typeof e.preventDefault === 'function') e.preventDefault(); // 阻止 <a> 導航
       window.__openChatQueue = true;
-      if (window.Tawk_API && typeof Tawk_API.showWidget === 'function' && typeof Tawk_API.maximize === 'function'){
+      if (window.Tawk_API && Tawk_API.showWidget && Tawk_API.maximize){
         Tawk_API.showWidget();
         Tawk_API.maximize();
         window.__openChatQueue = false;
       }
+      return false; // 進一步阻止預設行為/冒泡
     }
+
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     Tawk_API.onLoad = function(){
-      if (typeof Tawk_API.hideWidget === 'function') Tawk_API.hideWidget();
+      if (typeof Tawk_API.hideWidget === 'function') Tawk_API.hideWidget(); // 預設隱藏泡泡
       if (window.__openChatQueue) {
         if (typeof Tawk_API.showWidget === 'function') Tawk_API.showWidget();
         if (typeof Tawk_API.maximize === 'function') Tawk_API.maximize();
         window.__openChatQueue = false;
       }
     };
+
     (function(){
       var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
       s1.async=true;
