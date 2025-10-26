@@ -9,11 +9,9 @@
 
   <!-- Canonical & hreflang -->
   <link rel="canonical" href="https://zepper.pages.dev/AR_EN" />
-
   <link rel="alternate" hreflang="zh-Hant" href="https://zepper.pages.dev/AR_TC" />
   <link rel="alternate" hreflang="zh-Hans" href="https://zepper.pages.dev/AR_TC" />
   <link rel="alternate" hreflang="zh" href="https://zepper.pages.dev/AR_TC" />
-
   <link rel="alternate" hreflang="en" href="https://zepper.pages.dev/AR_EN" />
   <link rel="alternate" hreflang="x-default" href="https://zepper.pages.dev/AR_EN" />
   
@@ -38,7 +36,6 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-SCDB1CLKJK');
-
     gtag('config', 'AW-11479306375'); /* Google Ads 基本設定 */
   </script>
 
@@ -100,7 +97,7 @@
         "category": "project",
         "availability": "https://schema.org/LimitedAvailability",
         "url": "https://zepper.pages.dev/AR_EN#plans",
-        "description": "Custom project quotes. Includes 3D modeling & animation, interactive design, BG-removed compositing, SFX/audio, and more. Unlimited scans."
+        "description": "Custom project quotes. Includes 3D modeling & animation, interactive design, BG-removed compositing, SFX & audio, and more. Unlimited scans."
       }
     ]
   }
@@ -280,7 +277,7 @@
       <div class="wrap grid">
         <div>
           <h1 class="headline">Make your gifts, packaging, and products <span style="background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent">come alive with AI</span></h1>
-          <p class="sub">Step 1: Upload your logo. <br>Step 2: Customers scan the logo—AI instantly renders and plays your 3D or background-removed video so a delightful moving object appears on your product.</p>
+        <p class="sub">Step 1: Upload your logo. <br>Step 2: Customers scan the logo—AI instantly renders and plays your 3D or background-removed video so a delightful moving object appears on your product.</p>
           <div class="cta">
             <a class="btn primary" href="#get-started">See 3 ways to work with us</a>
             <a class="btn secondary" href="#embed">Watch demo</a>
@@ -384,7 +381,6 @@
             </ul>
             <a class="btn primary"
                href="javascript:void(0);"
-               target="_blank" rel="noopener"
                data-plan="Video"
                onclick="openChat()">Upload Video</a>
           </article>
@@ -401,8 +397,7 @@
             </ul>
             <a class="btn primary"
                href="javascript:void(0);"
-               target="_blank" rel="noopener"
-               data-plan="Video"
+               data-plan="3D"
                onclick="openChat()">Upload 3D model and animation </a>
           </article>
 
@@ -417,8 +412,7 @@
             </ul>
             <a class="btn primary"
                href="javascript:void(0);"
-               target="_blank" rel="noopener"
-               data-plan="Video"
+               data-plan="Creative"
                onclick="openChat()">Contact Our Team</a>
           </article>
 
@@ -459,32 +453,24 @@
     </div>
   </footer>
 
-  <!-- Year -->
+  <!-- Year + GA plan click -->
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Language flag for GA (paths including /ar_tc => zh-Hant; otherwise en)
     var lang = location.pathname.toLowerCase().includes('/ar_tc') ? 'zh-Hant' : 'en';
-
-    // GA4 custom event for plan clicks
     document.querySelectorAll('.plans a[data-plan]').forEach(function(el){
       el.addEventListener('click', function(){
         var planName = this.getAttribute('data-plan');
         if (typeof gtag === 'function') {
           gtag('event', 'click_plan', { plan: planName, lang: lang });
-          // Google Ads 轉換（英文頁專用 ID）
-          gtag('event', 'conversion', {
-            'send_to': 'AW-11479306375/rOZrCLGBpokbEIeh4eEq'
-          });
+          gtag('event', 'conversion', { 'send_to': 'AW-11479306375/rOZrCLGBpokbEIeh4eEq' });
         }
       });
     });
   </script>
 
-  <!-- Tawk.to Script (hidden bubble; CTA triggers chat) -->
+  <!-- Tawk.to Script (bubble hidden; CTA triggers chat) -->
   <!--Start of Tawk.to Script-->
   <script type="text/javascript">
-    // helper to open chat safely even if widget not fully loaded yet
     function openChat(){
       window.__openChatQueue = true;
       if (window.Tawk_API && typeof Tawk_API.showWidget === 'function' && typeof Tawk_API.maximize === 'function'){
@@ -493,14 +479,9 @@
         window.__openChatQueue = false;
       }
     }
-
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     Tawk_API.onLoad = function(){
-      // hide bubble on load for clean UI
-      if (typeof Tawk_API.hideWidget === 'function') {
-        Tawk_API.hideWidget();
-      }
-      // if user already clicked CTA before load finished, open now
+      if (typeof Tawk_API.hideWidget === 'function') Tawk_API.hideWidget();
       if (window.__openChatQueue) {
         if (typeof Tawk_API.showWidget === 'function') Tawk_API.showWidget();
         if (typeof Tawk_API.maximize === 'function') Tawk_API.maximize();
