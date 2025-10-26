@@ -39,7 +39,7 @@
     gtag('js', new Date());
     gtag('config', 'G-SCDB1CLKJK');
 
-    gtag('config', 'AW-11479306375'); /* 補這行：Google Ads 基本設定 */
+    gtag('config', 'AW-11479306375'); /* Google Ads 基本設定 */
   </script>
 
   <!-- Schema.org JSON-LD: Organization -->
@@ -288,7 +288,6 @@
         </div>
         <div class="embed-card" id="embed" aria-label="Demo video">
           <div class="ratio">
-            <!-- Replace this with your brand video or product demo -->
             <iframe 
               src="https://www.youtube.com/embed/PE12DKfgNdA?autoplay=1&mute=1&loop=1&playlist=PE12DKfgNdA" 
               title="Zepper AR Demo Video" 
@@ -384,9 +383,10 @@
               <li>$8.25/month (annual)</li>
             </ul>
             <a class="btn primary"
-    			   href="mailto:zepper.ar.ai@gmail.com?subject=Upload%20Video%20Plan"
-    			   target="_blank" rel="noopener"
-    			   data-plan="Video">Upload Video</a>
+               href="javascript:void(0);"
+               target="_blank" rel="noopener"
+               data-plan="Video"
+               onclick="openChat()">Upload Video</a>
           </article>
 
           <!-- Plan 2: 3D -->
@@ -400,9 +400,10 @@
               <li>$9.92/month (annual)</li>
             </ul>
             <a class="btn primary"
-    			   href="mailto:zepper.ar.ai@gmail.com?subject=Upload%20Video%20Plan"
-    			   target="_blank" rel="noopener"
-    			   data-plan="Video">Upload 3D model and animation </a>
+               href="javascript:void(0);"
+               target="_blank" rel="noopener"
+               data-plan="Video"
+               onclick="openChat()">Upload 3D model and animation </a>
           </article>
 
           <!-- Plan 3: Creative Services -->
@@ -415,9 +416,10 @@
               <li>Unlimited scans</li>
             </ul>
             <a class="btn primary"
-    			   href="mailto:zepper.ar.ai@gmail.com?subject=Upload%20Video%20Plan"
-    			   target="_blank" rel="noopener"
-    			   data-plan="Video">Contact Our Team</a>
+               href="javascript:void(0);"
+               target="_blank" rel="noopener"
+               data-plan="Video"
+               onclick="openChat()">Contact Our Team</a>
           </article>
 
         </div>
@@ -457,33 +459,63 @@
     </div>
   </footer>
 
+  <!-- Year -->
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // Language flag for GA (paths including /ar_tc => zh-Hant; otherwise en)
     var lang = location.pathname.toLowerCase().includes('/ar_tc') ? 'zh-Hant' : 'en';
 
-    
-
-
     // GA4 custom event for plan clicks
     document.querySelectorAll('.plans a[data-plan]').forEach(function(el){
       el.addEventListener('click', function(){
         var planName = this.getAttribute('data-plan');
-        gtag('event', 'click_plan', { plan: planName, lang: lang });
-
-        // Google Ads 轉換（英文頁專用 ID）
-        gtag('event', 'conversion', {
-          'send_to': 'AW-11479306375/rOZrCLGBpokbEIeh4eEq'
-        });
-  
-          
+        if (typeof gtag === 'function') {
+          gtag('event', 'click_plan', { plan: planName, lang: lang });
+          // Google Ads 轉換（英文頁專用 ID）
+          gtag('event', 'conversion', {
+            'send_to': 'AW-11479306375/rOZrCLGBpokbEIeh4eEq'
+          });
+        }
       });
     });
   </script>
+
+  <!-- Tawk.to Script (hidden bubble; CTA triggers chat) -->
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    // helper to open chat safely even if widget not fully loaded yet
+    function openChat(){
+      window.__openChatQueue = true;
+      if (window.Tawk_API && typeof Tawk_API.showWidget === 'function' && typeof Tawk_API.maximize === 'function'){
+        Tawk_API.showWidget();
+        Tawk_API.maximize();
+        window.__openChatQueue = false;
+      }
+    }
+
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    Tawk_API.onLoad = function(){
+      // hide bubble on load for clean UI
+      if (typeof Tawk_API.hideWidget === 'function') {
+        Tawk_API.hideWidget();
+      }
+      // if user already clicked CTA before load finished, open now
+      if (window.__openChatQueue) {
+        if (typeof Tawk_API.showWidget === 'function') Tawk_API.showWidget();
+        if (typeof Tawk_API.maximize === 'function') Tawk_API.maximize();
+        window.__openChatQueue = false;
+      }
+    };
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/68fe8354a434b3194c3c9929/1j8h320r3';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
 </body>
 </html>
-
-
-
-
