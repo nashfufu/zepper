@@ -444,6 +444,55 @@
     </div>
   </footer>
 
+  <!-- 在 <footer> 之後、</body> 之前 加入這段即可 -->
+  <footer class="wrap">
+    <div class="ft" id="contact">
+      <div>
+        <div style="font-weight:800; font-size:18px">Zepper AR</div>
+        <div class="sub">© <span id="y"></span> Zepper, Inc. All rights reserved.</div>
+      </div>
+      <div>
+        <div class="sub">Contact: <a href="mailto:zepper.ar.ai@gmail.com">zepper.ar.ai@gmail.com</a></div>
+        <div class="sub">Worldwide • PayPal supported</div>
+        <div class="sub"><a href="#privacy-policy" style="color:#9aa3d1;text-decoration:underline;">Privacy Policy</a></div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- ✅ 隱私權政策（Privacy Policy Section） -->
+  <section id="privacy-policy" class="wrap" style="padding:40px 0; color:#cfd6ff; font-size:15px; line-height:1.6">
+    <h2 style="font-size:22px; color:#fff">Privacy Policy</h2>
+    <p>Zepper AR values your privacy. This page explains how we collect, use, and protect your information.</p>
+  
+    <h3 style="font-size:18px; color:#fff; margin-top:24px">1. Information We Collect</h3>
+    <p>We may collect basic information such as your email address or uploaded files when you contact us or use our AR services. 
+    All data is used solely for providing and improving our service experience.</p>
+  
+    <h3 style="font-size:18px; color:#fff; margin-top:24px">2. Use of Data</h3>
+    <p>Your information will be used to respond to inquiries, process service requests, and maintain communication regarding your projects. 
+    We do not sell, trade, or share your information with any third parties.</p>
+  
+    <h3 style="font-size:18px; color:#fff; margin-top:24px">3. Cookies and Analytics</h3>
+    <p>Our site uses cookies and Google Analytics to understand website traffic and improve user experience. 
+    You may disable cookies in your browser settings if preferred.</p>
+  
+    <h3 style="font-size:18px; color:#fff; margin-top:24px">4. Data Security</h3>
+    <p>All data is transmitted securely via HTTPS and stored on protected servers. 
+    Access is limited to authorized personnel only.</p>
+  
+    <h3 style="font-size:18px; color:#fff; margin-top:24px">5. Contact</h3>
+    <p>If you have questions about this Privacy Policy, please contact us at 
+      <a href="mailto:zepper.ar.ai@gmail.com" style="color:#7cf3ff;">zepper.ar.ai@gmail.com</a>.
+    </p>
+  
+    <p style="margin-top:24px; color:#9aa3d1;">Last updated: <span id="privacy-date"></span></p>
+  </section>
+  
+  <script>
+    document.getElementById('privacy-date').textContent = new Date().toLocaleDateString();
+  </script>
+
+
   <!-- Year + GA plan click -->
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
@@ -495,3 +544,4 @@
   <!--End of Tawk.to Script-->
 </body>
 </html>
+
