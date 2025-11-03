@@ -53,6 +53,8 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Zepper AR",
+    "legalName":"佛舌工作社",
+    "alternateName":"FoShe Studio",
     "url": "https://zepper.pages.dev/",
     "logo": "https://zepper.pages.dev/zepper.png",
     "description": "最便宜、不限掃描次數的 WebAR 平台，專為 AR 包裝與 AR 禮品設計。支援影片去背與 3D 模型，三步驟讓你的禮品與包裝「動起來」。",
@@ -174,6 +176,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
+    
     :root{
       --bg: #0b1020;
       --bg2:#0f1630;
@@ -284,6 +287,10 @@
       .logos{grid-template-columns:repeat(3, 1fr)}
       .cards{grid-template-columns:1fr}
     }
+
+    .site-footer .legal-name { color: #9aa3d1; font-weight:600; opacity:0.95; }
+    @media (prefers-reduced-motion: no-preference){ /* 無動畫 */ }
+
   </style>
 </head>
 <body>
@@ -484,6 +491,9 @@
       <div>
         <div style="font-weight:800; font-size:18px">Zepper AR</div>
         <div class="sub">© <span id="y"></span> Zepper, Inc. All rights reserved.</div>
+        <div class="sub" style="font-size:11px; color:#9aa3d1; opacity:.75;">
+          營運單位：佛舌工作社（FoShe Studio）
+        </div>
       </div>
       <div>
         <div class="sub">聯絡我們：<a href="mailto:zepper.ar.ai@gmail.com">zepper.ar.ai@gmail.com</a></div>
@@ -492,24 +502,25 @@
       </div>
     </div>
   </footer>
+  
   <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  
     // 綁定方案按鈕點擊事件（GA4 + Google Ads 轉換）
     document.querySelectorAll('.plans a[data-plan]').forEach(function(el){
       el.addEventListener('click', function(){
         var planName = this.getAttribute('data-plan');
-    
-        // GA4 自訂事件
         gtag('event', 'click_plan', { plan: planName, lang: lang });
         gtag('event', 'conversion', {
-            'send_to': 'AW-11479306375/OdogCIukrokbEIeh4eEq' // 中文轉換代碼
-          });
-        
+          'send_to': 'AW-11479306375/OdogCIukrokbEIeh4eEq'
+        });
       });
     });
-
   </script>
+
 </body>
 </html>
+
 
 
 
