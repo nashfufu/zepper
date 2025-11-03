@@ -39,7 +39,7 @@
     gtag('config', 'AW-11479306375');
   </script>
 
-  <!-- Schema.org JSON-LD (Organization with legalName) -->
+  <!-- Schema.org JSON-LD (add legalName) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,63 +53,9 @@
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "TW"
-    },
-    "sameAs": [
-      "https://www.facebook.com/dessert365shop/",
-      "https://www.instagram.com/dessert365_shop/"
-    ]
+    }
   }
   </script>
-
-  <!-- Schema.org JSON-LD: Service / Offers -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Zepper AR WebAR Service",
-    "serviceType": "WebAR hosting/rendering",
-    "provider": {
-      "@type": "Organization",
-      "name": "Zepper AR",
-      "legalName": "佛舌工作社",
-      "alternateName": "FoShe Studio",
-      "url": "https://zepper.pages.dev/"
-    },
-    "areaServed": "Worldwide",
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Plan 1 | Video / BG-removed video",
-        "price": "9.99",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock",
-        "url": "https://zepper.pages.dev/AR_EN#plans",
-        "description": "Supports MP4 and background-removed video. Unlimited scans. $9.99/month, or $8.25/month on annual billing."
-      },
-      {
-        "@type": "Offer",
-        "name": "Plan 2 | 3D models & animation",
-        "price": "11.99",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock",
-        "url": "https://zepper.pages.dev/AR_EN#plans",
-        "description": "Supports GLB 3D models & animation. Unlimited scans. $11.99/month, or $9.92/month on annual billing."
-      },
-      {
-        "@type": "Offer",
-        "name": "Plan 3 | Creative Services (custom)",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/LimitedAvailability",
-        "url": "https://zepper.pages.dev/AR_EN#plans",
-        "description": "Custom project quotes. Includes 3D modeling & animation, interactive design, BG-removed compositing, SFX & audio, and more. Unlimited scans."
-      }
-    ]
-  }
-  </script>
-
-  <!-- FAQ + AboutPage (unchanged) -->
-  <!-- ... keep existing FAQ and AboutPage JSON-LD blocks ... -->
 
   <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,18 +63,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{--bg:#0b1020;--bg2:#0f1630;--card:#121830cc;--txt:#e8ecff;--muted:#a8b0d6;--brand:#7cf3ff;--brand2:#9b8cff;--ok:#4ee3b2;--danger:#ff6b6b;--glass:rgba(255,255,255,0.06);--glass-stroke:rgba(255,255,255,0.12);--shadow:0 10px 30px rgba(0,0,0,.45);--radius:16px;--radius-lg:22px;--maxw:1200px;}
+    :root{
+      --bg:#0b1020; --bg2:#0f1630; --card:#121830cc; --txt:#e8ecff; --muted:#a8b0d6;
+      --brand:#7cf3ff; --brand2:#9b8cff; --ok:#4ee3b2; --danger:#ff6b6b;
+      --glass:rgba(255,255,255,0.06); --glass-stroke:rgba(255,255,255,0.12);
+      --shadow:0 10px 30px rgba(0,0,0,.45); --radius:16px; --radius-lg:22px; --maxw:1200px;
+    }
     *{box-sizing:border-box} html,body{height:100%}
-    body{margin:0;background:radial-gradient(1200px 1200px at 10% -10%,#172258 0%,transparent 60%),radial-gradient(1000px 700px at 90% 10%,#2c1d6f 0%,transparent 55%),linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);font-family:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,sans-serif;color:var(--txt);}
-    a{color:var(--brand)} .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-    footer{padding:30px 0 60px;color:#9aa3d1}
-    .ft{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px dashed var(--glass-stroke);padding-top:18px}
-    .legal-note{font-size:11px;color:#9aa3d1;opacity:.75;margin-top:4px}
+    body{
+      margin:0; background:
+        radial-gradient(1200px 1200px at 10% -10%, #172258 0%, transparent 60%),
+        radial-gradient(1000px 700px at 90% 10%, #2c1d6f 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      font-family:"Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, sans-serif;
+      color:var(--txt);
+    }
+    a{color:var(--brand)}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+    footer{padding:30px 0 60px; color:#9aa3d1}
+    .ft{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; border-top:1px dashed var(--glass-stroke); padding-top:18px}
+    .legal-note{font-size:11px; color:#9aa3d1; opacity:.75; margin-top:4px}
   </style>
 </head>
 
 <body>
-  <!-- existing header + main content remain unchanged -->
+  <!-- header, main content ... (unchanged) -->
 
   <footer class="wrap">
     <div class="ft" id="contact">
@@ -145,7 +104,6 @@
     </div>
   </footer>
 
-  <!-- Year + GA plan click -->
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
     var lang = location.pathname.toLowerCase().includes('/ar_tc') ? 'zh-Hant' : 'en';
@@ -160,7 +118,7 @@
     });
   </script>
 
-  <!-- Tawk.to Script -->
+  <!-- Tawk.to -->
   <script type="text/javascript">
     function openChat(e){
       if (e && typeof e.preventDefault === 'function') e.preventDefault();
